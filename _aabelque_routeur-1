@@ -1,3 +1,0 @@
-FROM frrouting/frr
-ENV DAEMONS="zebra bgpd ospfd isisd"
-COPY ./_aabelque_routeur-1.daemons.conf /etc/frr/daemons
