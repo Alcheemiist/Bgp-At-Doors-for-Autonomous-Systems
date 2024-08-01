@@ -1,0 +1,3 @@
+FROM alpine:latest
+COPY ./setup_first_host.sh /setup_first_host.sh
+CMD ["sh", "/setup_first_host.sh"]

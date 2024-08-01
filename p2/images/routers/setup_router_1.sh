@@ -1,5 +1,4 @@
-# FRR 1 - setup_router_1.sh
-
+sleep 5
 ip link add br0 type bridge 
 ip link set dev br0 up 
 ip addr add 10.1.1.1/24 dev eth0
@@ -8,11 +7,3 @@ ip addr add 20.1.1.1/24 dev vxlan10
 brctl addif br0 eth1 
 brctl addif br0 vxlan10 
 ip link set dev vxlan10 up
-
-ip link show vxlan10
-ip addr show eth0
-ip -d link show vxlan
-
-# ALpine Machine - setup_machine.sh
-
-ip addr add 30.1.1.1/24 dev eth1
