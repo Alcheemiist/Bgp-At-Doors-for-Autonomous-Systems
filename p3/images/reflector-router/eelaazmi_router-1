@@ -1,0 +1,5 @@
+FROM frrouting/frr
+ENV DAEMONS="zebra bgpd ospfd isisd"
+COPY ./eelaazmi-1.daemons.conf /etc/frr/daemons
+COPY ./setup_router_1.sh /setup_router_1.sh
+CMD ["sh", "/setup_router_1.sh"]

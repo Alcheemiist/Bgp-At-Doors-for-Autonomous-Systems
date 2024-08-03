@@ -1,0 +1,11 @@
+FROM alpine:latest
+
+# Install necessary networking tools
+RUN apk add --no-cache iproute2
+
+# Copy the startup script
+COPY ./setup_first_host.sh /setup_first_host.sh
+RUN chmod +x /setup_first_host.sh
+
+# Set the startup script as the entrypoint
+ENTRYPOINT ["/setup_first_host.sh"]
