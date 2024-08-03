@@ -1,24 +1,29 @@
-#! /bin/ash
+#!/bin/sh
 
-# Wait for eth1 to appear
-while ! ip link show eth1 > /dev/null 2>&1; do
-  echo "Waiting for eth1..."
-  sleep 2
-done
+# Function to configure static IP
+configure_static_ip() {
+    # Check if eth0 exists and is up
+    if ip link show eth1 up > /dev/null 2>&1; then
+        echo "Configuring static IP on eth1..."
+        # Remove any existing IP addresses
+        ip addr flush dev eth1
+        # Add the static IP
+        ip addr add 30.1.1.2/24 dev eth1
+        # Add a default route
+        ip route add default via 239.1.1.1 
+        echo "Static IP configuration complete."
+    else
+        echo "eth1 not found or not up. Using default network configuration."
+    fi
+}
 
-cat >> /etc/network/interfaces << EOF
-# Static config for eth1
-auto eth1
-iface eth1 inet static
-	address 30.1.1.2
-	netmask 255.255.255.0
-	gateway 192.168.1.1
-#	up echo nameserver 192.168.1.1 > /etc/resolv.conf
+# Attempt to configure static IP
+configure_static_ip
 
-# DHCP config for eth1
-#auto eth1
-#iface eth1 inet dhcp
-#	hostname alpine-1
-EOF
+# Log the IP address
+echo "Container IP address:"
+ip addr show eth1
 
-ifup eth1
+# Your application command here
+# For example, to keep the container running:
+exec tail -f /dev/null
