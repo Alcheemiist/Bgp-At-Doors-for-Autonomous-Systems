@@ -24,6 +24,5 @@ configure_static_ip
 echo "Container IP address:"
 ip addr show eth1
 
-# Your application command here
-# For example, to keep the container running:
+# to keep the container running:
 exec tail -f /dev/null

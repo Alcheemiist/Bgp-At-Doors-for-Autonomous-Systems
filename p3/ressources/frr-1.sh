@@ -17,7 +17,7 @@ router bgp 1
     neighbor ibgp peer-group
     neighbor ibgp remote-as 1
     neighbor ibgp update-source lo
-    bgp listen range 1.1.1.0/29 perr-group ibgp
+    bgp listen range 1.1.1.0/29 peer-group ibgp
     !
     address-family l2vpn evpn
         neighbor ibgp activate
