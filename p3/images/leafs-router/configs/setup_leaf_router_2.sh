@@ -2,6 +2,48 @@
 
 sleep 5
 
+
+hostname Leaf2
+!
+interface lo
+ ip address 3.3.3.3/32
+!
+interface eth0
+ ip address 10.0.2.2/24
+!
+interface eth1
+ ip address 192.168.2.1/24
+!
+interface vxlan1
+ vxlan id 10
+ vxlan local-tunnelip 3.3.3.3
+!
+bridge vlan-aware
+!
+vlan 10
+ bridge 10
+!
+router ospf
+ network 3.3.3.3/32 area 0
+ network 10.0.0.0/8 area 0
+!
+router bgp 65000
+ bgp router-id 3.3.3.3
+ neighbor 1.1.1.1 remote-as 65000
+ neighbor 1.1.1.1 update-source lo
+ !
+ address-family l2vpn evpn
+  neighbor 1.1.1.1 activate
+  advertise-all-vni
+ exit-address-family
+!
+evpn
+ vni 10
+  rd auto
+  route-target import auto
+  route-target export auto
+!
+
 ip link add br0 type bridge 
 ip link set dev br0 up 
 ip addr add 10.1.1.1/24 dev eth0

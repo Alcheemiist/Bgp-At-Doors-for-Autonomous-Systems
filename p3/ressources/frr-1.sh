@@ -8,7 +8,7 @@ interface eth1
     ip address 10.1.1.5/30
 !
 interface eth2
-    ip addess 10.1.1.9/30
+    ip address 10.1.1.9/30
 !
 interface lo
     ip address 1.1.1.1/32

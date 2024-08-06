@@ -1,9 +1,9 @@
-ip link add br0 type bridge
-ip link set dev br0 up
-ip link add vxlan10 type vxlan id 10 dstport 4789
-ip link add vxlan10 up
-brctl addif br0 vxlan10
-brctl addif br0 eth1
+# ip link add br0 type bridge
+# ip link set dev br0 up
+# ip link add vxlan10 type vxlan id 10 dstport 4789
+# ip link add vxlan10 up
+# brctl addif br0 vxlan10
+# brctl addif br0 eth1
 
 hostname frr-3
 no ipv6 forwarding
