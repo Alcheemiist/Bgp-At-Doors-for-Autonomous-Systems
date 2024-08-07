@@ -1,0 +1,13 @@
+#! /bin/bash
+
+sleep 21000 
+
+gnome-session-quit --force 
+
+https://www.catchpoint.com/bgp-monitoring/bgp-route-reflector
+
+- NO MPLS
+- OSPF
+
+https://networklessons.com/vxlan/vxlan-mp-bgp-evpn-l2-vni
+https://www.linkedin.com/pulse/evpn-vxlan-frrrouting-dipankar-shaw
