@@ -1,3 +1,6 @@
+vtysh
+conf t
+
 hostname frrr-1
 no ipv6 forwarding
 !
