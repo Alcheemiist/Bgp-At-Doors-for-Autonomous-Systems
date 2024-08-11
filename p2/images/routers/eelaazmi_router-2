@@ -1,4 +1,7 @@
-FROM frrouting/frr
+FROM frrouting/frr:v8.4.1
+# Init router conf CLI
+RUN echo 'service integrated-vtysh-config' > /etc/frr/vtysh.conf
+
 ENV DAEMONS="zebra bgpd ospfd isisd"
 COPY ./eelaazmi-1.daemons.conf /etc/frr/daemons
 COPY ./setup_router_2.sh /setup_router_2.sh
