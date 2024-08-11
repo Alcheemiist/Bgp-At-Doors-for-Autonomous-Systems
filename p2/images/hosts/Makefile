@@ -10,6 +10,9 @@ build:
 clean:
 	yes | docker image prune -a
 
+vs: 
+	docker images
+	
 re: clean all
 
 .PHONY: all build clean re

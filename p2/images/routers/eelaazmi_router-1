@@ -1,4 +1,5 @@
 FROM frrouting/frr:v8.4.1
+
 # Init router conf CLI
 RUN echo 'service integrated-vtysh-config' > /etc/frr/vtysh.conf
 
