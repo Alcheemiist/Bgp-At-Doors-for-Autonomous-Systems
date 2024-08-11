@@ -1,4 +1,5 @@
 FROM frrouting/frr:v8.4.1
+
 ENV DAEMONS="zebra bgpd ospfd isisd"
 COPY ./eelaazmi-1.daemons.conf /etc/frr/daemons
 COPY ./entrypoint.sh /entrypoint.sh
